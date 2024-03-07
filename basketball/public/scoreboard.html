@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="/font/micro.ttf">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clocks">
+            <!-- <div>
+                <span id="shotclock">24</span>
+            </div> -->
+            <div>
+                <span id="timer"><span id="timer-m">10</span>:<span id="timer-s">00</span></span>
+            </div>
+        </div>
+
+        <div class="scores">
+            <div class="team1">
+                <span id="ts-1">00</span>
+            </div>
+            <div class="period">
+                <div>
+                    <label style="font-size: 7rem;">Period</label><br>
+                    <span id="quarter">1</span>
+                </div>
+            </div>
+            <div class="team2">
+                <span id="ts-2">00</span>
+            </div>
+        </div>
+        <div class="teams">
+            <div class="team1">
+                <span id="tn-1">Team 1</span>
+            </div>
+            <div>
+                <span id="shot-clock">24</span>
+            </div>
+            <div class="team2">
+                <span id="tn-2">Team 2</span>
+            </div>
+        </div>
+     
+    </div>
+
+    <div style="display: none;">
+        <audio id="hornid">
+            <source src="/assets/horn.mp3" type="audio/mp3">
+          </audio>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/scoreboard.js"></script>
+</body>
+</html>

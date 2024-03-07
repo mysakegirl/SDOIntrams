@@ -2,8 +2,8 @@ body{
     font-family: 'custom';
     background-color: #101010;
     color: white;
-    margin: 0px;
-    box-sizing: border-box;
+    /* margin: 0px;
+    box-sizing: border-box; */
 }
 
 @font-face{
@@ -52,6 +52,7 @@ body{
 .clocks{
     display: flex;
     flex-direction: row;
+    margin-top: 8px;
 }
 .clocks > div{
     width: 100%;
@@ -99,12 +100,14 @@ body{
 
 #tn-1{
     font-size: 8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
+    -webkit-text-stroke: 2px #000;
 }
 
 #tn-2{
     font-size: 8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
+    -webkit-text-stroke: 2px #000;
 }
 
 .period{

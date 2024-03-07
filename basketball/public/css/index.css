@@ -1,0 +1,53 @@
+body{
+    font-family: 'custom2';
+    background-color: #101010;
+    color: white;
+}
+
+@font-face{
+    font-family: 'custom2';
+    src: url('/font/micro.ttf') format('truetype');
+}
+
+.container{
+    width: 100%;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.menu{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.menuList{
+    font-size: 3rem;
+    display: block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #020202;
+    color: white;
+    text-align: center;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
