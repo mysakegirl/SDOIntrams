@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Scoreboard</title>
+    <link rel="stylesheet" href="/font/micro.ttf">
+    <link rel="stylesheet" href="/css/vbscoringpanel.css">
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <legend>General</legend>
+            <div id="generalbtns" style="display: flex; flex-direction: row;">
+                <button onclick="updateSet()" class="gen-set">
+                    SET +1
+                </button>
+
+                <button onclick="minusSetWon(1)" class="gs-t1">
+                    TEAM1 SET -1
+                </button>
+
+                <button onclick="plusSetWon(1)" class="gs-t1">
+                    TEAM1 SET +1
+                </button>
+
+                <button onclick="minusSetWon(2)" class="gs-t2">
+                    TEAM2 SET -1
+                </button>
+
+                <button onclick="plusSetWon(2)" class="gs-t2">
+                    TEAM2 SET +1
+                </button>
+            </div>
+        </fieldset>
+
+
+       <fieldset>
+            <legend>Score</legend>
+            <div class="team-score">
+                <div class="team-left">
+                    <fieldset>
+                        <legend>TEAM 1</legend>
+                        <div class="team-score-header">
+                            <!-- <div>
+                                <span class="vbs-teamscores">0</span>
+                            </div> -->
+                            <div>
+                                <input type="text" class="vbs-teamnames" onchange="updateVBTeamName(1)" id="vbs-tn1" placeholder="Team 1 Name">
+                            </div>
+                            <div>
+                                <input type="color" class="vbs-teamcolor" id="vbs-tc1" onchange="updateVBTeamColor(1)">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="controller-body">
+                            <button onclick="minusVBScore(1)" class="vbs-minus1">-1</button>
+                            <button onclick="plusVBScore(1)" class="vbs-plus1">+1</button>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="team-right">
+                   <fieldset>
+                        <legend>TEAM 2</legend>
+                        <div class="team-score-header">
+                            <!-- <div>
+                                <span class="vbs-teamscores">0</span>
+                            </div> -->
+                            <div>
+                                <input type="text" class="vbs-teamnames" onchange="updateVBTeamName(2)" id="vbs-tn2" placeholder="Team 2 Name">
+                            </div>
+                            <div>
+                                <input type="color" class="vbs-teamcolor" id="vbs-tc2" onchange="updateVBTeamColor(2)">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="controller-body">
+                            <button onclick="minusVBScore(2)" class="vbs-minus2">-1</button>
+                            <button onclick="plusVBScore(2)" class="vbs-plus2">+1</button>
+                        </div>
+                   </fieldset>
+                </div>
+            </div>
+       </fieldset>
+
+       <br>
+       <br>
+       <fieldset>
+            <legend>Others</legend>
+           <div style="display: flex; flex-direction: column;">
+            <table class="table-score">
+                <tr>
+                    <td colspan="5" style="text-align: center;">TEAM 1</td>
+                </tr>
+                <tr>
+                    <td> <input type="text" id="t1s1" onchange="setScoreTable(1,1)"/> </td>
+                    <td> <input type="text" id="t1s2" onchange="setScoreTable(1,2)" /> </td>
+                    <td> <input type="text" id="t1s3" onchange="setScoreTable(1,3)" /> </td>
+                    <td> <input type="text" id="t1s4" onchange="setScoreTable(1,4)" /> </td>
+                    <td> <input type="text" id="t1s5" onchange="setScoreTable(1,5)" /> </td>
+                </tr>
+            </table>
+            <table class="table-score">
+                <tr>
+                    <td colspan="5" style="text-align: center;">TEAM 2</td>
+                </tr>
+                <tr>
+                    <td> <input type="text" id="t2s1" onchange="setScoreTable(2,1)" /> </td>
+                    <td> <input type="text" id="t2s2" onchange="setScoreTable(2,2)" /> </td>
+                    <td> <input type="text" id="t2s3" onchange="setScoreTable(2,3)" /> </td>
+                    <td> <input type="text" id="t2s4" onchange="setScoreTable(2,4)" /> </td>
+                    <td> <input type="text" id="t2s5" onchange="setScoreTable(2,5)" /> </td>
+                </tr>
+            </table>
+           </div>
+           <br>
+           <button onclick="evaluateScore()">Evaluate Score</button>
+       </fieldset>
+       <br><br>
+       <button onclick="clearScore()" style="background-color: #eeff41 ; color: black;">Clear Score</button>
+       <button onclick="resetVBGame()" style="background-color: red; color: white; float: right;">Reset Game</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/vbscoringpanel.js"></script>
+</body>
+</html>

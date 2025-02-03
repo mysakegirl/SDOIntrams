@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDO Intrams Scoreboard</title>
+    <title>SDO</title>
+    <link rel="icon" href="/assets/sdo.png"/>
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
@@ -13,8 +14,25 @@
         </div>
 
         <div class="menu">
-            <span class="menuList">Basketball</span>
-            <span class="menuList">Volleyball</span>
+           <div class="menu-main" id="menu-mainid">
+                <span onclick="mainMenu(1)" class="menuList">Basketball</span>
+                <span onclick="mainMenu(2)" class="menuList">Volleyball</span>
+           </div>
+
+           <div class="sub-menu" id="menu1" style="display: none;">
+                <a class="sub-menuList" href="/scoring-panel.html" target="_blank">Scoring Panel</a>
+                <a class="sub-menuList" href="/scoreboard.html" target="_blank">Scoreboard</a>
+                <a class="sub-menuList" href="/bb-stream-screen.html" target="_blank">Stream Screen</a>
+                <a class="sub-menuList" href="/shoutout.html" target="_blank">Shout out Segment</a>
+                <span onclick="backtoMenu()" class="backmenu">&#8249; back to menu</span>
+           </div>
+
+           <div class="sub-menu" id="menu2" style="display: none;">
+            <a class="sub-menuList" href="/vb-scoring-panel.html" target="_blank">Volleyball Scoring Panel</a>
+            <a class="sub-menuList" href="/vb-scoreboard.html" target="_blank">Volleyball Scoreboard</a>
+            <a class="sub-menuList" href="/vb-stream-screen.html" target="_blank">Stream Screen</a>
+            <span onclick="backtoMenu()" class="backmenu">&#8249; back to menu</span>
+       </div>
         </div>
 
 
@@ -24,5 +42,7 @@
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/index.js"></script>
+
 </body>
 </html>

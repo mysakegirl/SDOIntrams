@@ -1,0 +1,70 @@
+body{
+    font-family: 'custom';
+    background-color: #fff;
+    background-color: #202020;
+}
+
+@font-face{
+    font-family: 'custom';
+    src: url('/font/digital.ttf') format('truetype');
+}
+
+.container {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sub-container{
+    width: 60%;
+    /* background-color: #202020; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.school-logo{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 50%; */
+    background-color: white;
+    height: auot;
+}
+
+
+.vb-scores{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.vb-scores > div{
+    width: 100%;
+}
+
+.team1{
+    background-color: red;
+}
+.team2{
+    background-color: blue;
+}
+
+.bottom-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.ads{
+    padding: 10px 0px;
+    width: 100%;
+    background-color: white;
+}

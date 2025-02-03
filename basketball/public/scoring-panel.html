@@ -3,110 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoring Panel</title>
+    <title>SDO | Basketball Scoring Panel</title>
+    <link rel="icon" href="/assets/sdo.png"/>
     <link rel="stylesheet" href="/css/scoringpanel.css">
 </head>
 <body>
     <div class="sp-container">
-        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-            <p class="sp-title">SDO Automated Scoreboard</p>
-            <div>
-                <button onclick="endHorn()" style="padding: 0.75rem 0.35rem; margin-right: 5px;">End of Game Horn</button>
-                <button onclick="resetGame()" style="padding: 0.75rem 0.35rem; margin-right: 5px;">Reset Game</button>
+        <fieldset>
+            <legend>General <button id="gen-btn" onclick="toggleHide()">Hide</button></legend>
+            <div id="gen-id" class="gen-container showContent">
+                <div class="a-container">
+                    <fieldset>
+                        <legend>GAME CLOCK</legend>
+                        <button onclick="startTime()" id="gcstart" class="gc-start">
+                            START
+                        </button>
+                        <button id="gcstop" onclick="stopTime()" class="gc-stop">
+                            STOP
+                        </button>
+                    </fieldset>
+                    <fieldset>
+                        <legend>SIMULTANEOUS</legend>
+                        <button onclick="simulStart()" class="simul-start">START</button>
+                        <button onclick="simulStop()" class="simul-stop">STOP</button>
+                    </fieldset>
+                    <fieldset>
+                        <legend>SHOT CLOCK</legend>
+                        <button id="startShotClock" onclick="StartSC()" class="sc-start">
+                            START
+                        </button>
+                        <button id="scstop" onclick="StopSC()" class="sc-stop">
+                            STOP
+                        </button>
+                    </fieldset>
+                </div>
+                <div class="b-container">
+                    <fieldset>
+                        <legend>Game clock</legend>
+                        <div class="gc-adds">
+                            <div>
+                                <button onclick="addMinute()">
+                                    Minute +1
+                                </button>
+                                <button onclick="addSecond()">
+                                    Second +1
+                                </button>
+                            </div>
+                            <div>
+                                <button onclick="minusMinute()">
+                                    Minute -1
+                                </button>
+                                <button onclick="minusSecond()">
+                                    Second -1
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Shot clock</legend>
+                        <div class="sc-adds">
+                           <div>
+                                <button onclick="addSC()">
+                                    <span style="font-size: 11px;">SHOTCLOCK</span> +1
+                                </button>
+                                <button onclick="minusSC()">
+                                    <span style="font-size: 11px;">SHOTCLOCK</span> -1
+                                </button>
+                           </div>
+                           <div>
+                                <button onclick="resetTo14()">
+                                    <span style="font-size: 11px;">SHOTCLOCK</span> [14]
+                                </button>
+                                <button onclick="resetTo24()">
+                                    <span style="font-size: 11px;">SHOTCLOCK</span> [24]
+                                </button>
+                           </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="c-container">
+                    <fieldset>
+                        <legend>Others</legend>
+                        <button onclick="endHorn()" style="padding: 0.75rem 0.35rem; margin-right: 5px;">End of Game Horn</button>
+                        <button onclick="resetGame()" style="padding: 0.75rem 0.35rem; margin-right: 5px;">Reset Game</button>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Quarter</legend>
+                        <button onclick="updateQuarter()" style="cursor:pointer; padding: 0.75rem 0.35rem; margin-right: 5px;border: 0; background-color: #00e676;">QUARTER +1</button>
+                    </fieldset>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="controller-keys">
-            <div class="a-control">
-                <div class="gameclock">
-                    <button onclick="startTime()" id="gcstart" class="gc-start">
-                        START
-                    </button>
-                    <p class="gc-label">GAME CLOCK</p>
-                    <button id="gcstop" onclick="stopTime()" class="gc-stop">
-                        STOP
-                    </button>
-                    <button onclick="simulStart()" class="simul-start">SIMUL START</button>
-                </div>
-                <div class="shotclock">
-                    <button id="startShotClock" onclick="StartSC()" class="sc-start">
-                        START
-                    </button>
-                    <p class="sc-label">SHOT CLOCK</p>
-                    <button id="scstop" onclick="StopSC()" class="sc-stop">
-                        STOP
-                    </button>
-                    <button onclick="simulStop()" class="simul-stop">SIMUL STOP</button>
-                </div>
-            </div>
-            <div class="b-control">
-                <div class="gc-adds">
-                    <button onclick="addMinute()">
-                        MIN.<br> +1
-                    </button>
-                    <button onclick="minusMinute()">
-                        MIN.<br> -1
-                    </button>
-                </div>
-                <div class="gc-adds">
-                    <button onclick="addSecond()">
-                        SEC.<br> +1
-                    </button>
-                    <button onclick="minusSecond()">
-                        SEC.<br> -1
-                    </button>
-                </div>
-                <div class="gc-adds">
-                    <button onclick="resetGameClock()">RESET<br>GAMECLOCK</button>
-                    <button onclick="updateQuarter()">QUARTER <br> +1</button>
-                </div>
-            </div>
-            <div class="c-control">
-                <div class="sc-adds">
-                    <button onclick="addSC()">
-                        <span style="font-size: 9px;">SHOTCLOCK</span><br> +1
-                    </button>
-                    <button onclick="minusSC()">
-                        <span style="font-size: 9px;">SHOTCLOCK</span><br> -1
-                    </button>
-                </div>
-                <div class="sc-adds">
-                    <button onclick="resetTo14()">
-                        <span style="font-size: 9px;">SHOTCLOCK</span><br> 14
-                    </button>
-                    <button onclick="resetTo24()">
-                        <span style="font-size: 9px;">SHOTCLOCK</span><br> 24
-                    </button>
-                </div>
-            </div>
-        </div>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>TEAMS</legend>
+            <div class="teams">
+                <fieldset>
+                    <legend>TEAM 1</legend>
+                    <div class="team1">
+                        <div style="margin-bottom: 10px;">
+                            <div style="display: flex; flex-direction: row;width: 25%"><input id="color-1" onchange="updateColor(1)" type="color"/></div>
+                            <div class="tn-container"><input id="t1-n" onchange="updateName(1)" placeholder="Enter Team Name"/></div>
+                        </div>
+                        <div>
+                            <button class="btn-minus" onclick="updateScore(-1,1)" id="t1-m1"><label>-1</label></button>
+                            <button class="btn" onclick="updateScore(1,1)" id="t1-p1"><label>+1</label></button>
+                            <button class="btn" onclick="updateScore(2,1)" id="t1-p2"><label>+2</label></button>
+                            <button class="btn" onclick="updateScore(3,1)" id="t1-p3"><label>+3</label></button>
+                        </div>
+                    </div>
+                </fieldset>
 
-        <div class="teams">
-            <div class="team1">
-                <div>
-                    <div style="display: flex; flex-direction: row; margin-bottom: 10px;width: 25%"><input id="color-1" onchange="updateColor(1)" type="color"/></div>
-                    <div class="tn-container"><input id="t1-n" onchange="updateName(1)" placeholder="Enter Team Name"/></div>
-                </div>
-                <div>
-                    <button class="btn-minus" onclick="updateScore(-1,1)" id="t1-m1"><label>-1</label> pt</button>
-                    <button class="btn" onclick="updateScore(1,1)" id="t1-p1"><label>+1</label> pt</button>
-                    <button class="btn" onclick="updateScore(2,1)" id="t1-p2"><label>+2</label> pts</button>
-                    <button class="btn" onclick="updateScore(3,1)" id="t1-p3"><label>+3</label> pts</button>
-                </div>
+                <fieldset>
+                    <legend>TEAM 2</legend>
+                    <div class="team2">
+                        <div style="margin-bottom: 10px;">
+                            <div style="display: flex; flex-direction: row; width: 25%"><input id="color-2" onchange="updateColor(2)" type="color"/></div>
+                            <div class="tn-container"> <input id="t2-n" onchange="updateName(2)" placeholder="Enter Team Name"/></div>
+                        </div>
+                        <div>
+                            <button class="btn-minus" onclick="updateScore(-1,2)" id="t2-m1"><label>-1</label></button>
+                            <button class="btn2" onclick="updateScore(1,2)" id="t2-p1"><label>+1</label></button>
+                            <button class="btn2" onclick="updateScore(2,2)" id="t2-p2"><label>+2</label></button>
+                            <button class="btn2" onclick="updateScore(3,2)" id="t2-p3"><label>+3</label></button>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-            <div class="team2">
-                <div>
-                    <div style="display: flex; flex-direction: row; margin-bottom: 10px;width: 25%"><input id="color-2" onchange="updateColor(2)" type="color"/></div>
-                    <div class="tn-container"> <input id="t2-n" onchange="updateName(2)" placeholder="Enter Team Name"/></div>
-                </div>
-                <div>
-                    <button class="btn-minus" onclick="updateScore(-1,2)" id="t2-m1"><label>-1</label> pt</button>
-                    <button class="btn2" onclick="updateScore(1,2)" id="t2-p1"><label>+1</label> pt</button>
-                    <button class="btn2" onclick="updateScore(2,2)" id="t2-p2"><label>+2</label> pts</button>
-                    <button class="btn2" onclick="updateScore(3,2)" id="t2-p3"><label>+3</label> pts</button>
-                </div>
-            </div>
-        </div>
+        </fieldset>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/scripts/scoring-panel.js"></script>

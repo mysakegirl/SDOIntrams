@@ -1,47 +1,126 @@
 body{
     font-family: sans-serif;
     background-color: #212121;
+    color: #fff;
+    font-family: 'custom';
     /* margin: 0px; */
     /* box-sizing: border-box; */
 }
+
+@font-face{
+    font-family: 'custom';
+    src: url('/font/digital.ttf') format('truetype');
+}
+
 .sp-container{
     width: 100%;
-    border: 3px solid white;
-    border-radius: 0.5rem;
+    /* border: 3px solid white;
+    border-radius: 0.5rem; */
 }
 
-.sp-title{
-    color: white;
-    padding-left: 10px;
-}
-
-.controller-keys{
+.gen-container{
     display: flex;
     flex-direction: row;
-}
-.controller-keys > div{
-    width: 100%;
-}
-
-.a-control{
-    display: flex;
-    flex-direction: row;
-    padding-left: 10px;
     justify-content: center;
     align-items: center;
 }
-button{
-    cursor: pointer;
-    border: 0;
+.gen-container > div{
+    width: 100%;
 }
-.gameclock{
-    margin-right: 10px;
+
+.a-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.teams > fieldset{
+    width: 100%;
+}
+.team1 > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.team1 > div > button{
+    width: 100%;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+
+.team2 > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.team2 > div > button{
+    width: 100%;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+
+.hideContent{
+    display: none;
+}
+.showContent{
+    display: flex;
+}
+
+#gen-btn{
+    font-family: 'custom';
+}
+
+.tn-container{
+    width: 75%;
+}
+.tn-container >  input{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 0;
+    width: 90%;
+    text-align: center;
+}
+
+.btn-minus{
+    background-color: #c62828;
+    border: 0;
+    padding:  0.25rem 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-minus:hover{
+    background-color: #b71c1c;
+}
+
+.btn{
+    color: black;
+    border: 0;
+    padding: 0.75rem 0.75rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #1b5e20;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn2{
+    color: black;
+    border: 0;
+    padding: 0.75rem 0.75rem;
+    cursor: pointer;
+}
+
+.btn2:hover{
+    background-color: #1b5e20;
+    color: white;
+    border: 2px solid white;
 }
 
 .gc-start{
-    padding: 1rem;
-    width: 80px;
-    height: 45px;
+    padding: 10px;
     background-color: #2e7d32;
     color: #fff;
     border: 2px solid white;
@@ -50,16 +129,8 @@ button{
     background-color: #1b5e20;
 }
 
-.gc-label{
-    color: white;
-    font-size: 9px;
-    text-align: center;
-    font-weight: bold;
-}
 .gc-stop{
-    padding: 1rem;
-    width: 80px;
-    height: 45px;
+    padding: 10px;
     background-color: #c62828;
     color: #fff;
     border: 2px solid white;
@@ -69,29 +140,22 @@ button{
 }   
 
 .simul-start{
-    margin-top: 10px;
-    display: block;
-    width: 80px;
-    height: 45px;
+    cursor: pointer;
+    padding: 10px;
     border: 2px solid white;
     color: #fff;
     background-color: #6a1b9a;
 }
-
 .simul-stop{
-    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
     border: 2px solid white;
-    display: block;
-    width: 80px;
-    height: 45px;
     color: #fff;
     background-color: #d50000;
 }
 
 .sc-start{
-    /* padding: 1rem; */
-    width: 75px;
-    height: 30px;
+    padding: 10px;
     background-color: #2e7d32;
     color: #fff;
     border: 2px solid white;
@@ -99,53 +163,14 @@ button{
 .sc-start:hover{
     background-color: #1b5e20;
 }
-
-.sc-label{
-    color: white;
-    font-size: 9px;
-    text-align: center;
-    font-weight: bold;
-}
 .sc-stop{
-    /* padding: 1rem; */
-    width: 75px;
-    height: 30px;
+    padding: 10px;
     background-color: #c62828;
     color: #fff;
     border: 2px solid white;
 }
 .sc-stop:hover{
     background-color: #b71c1c;
-}
-
-.b-control{
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-}
-.gc-adds{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.gc-adds > button{
-    padding: 0.75rem 0.75rem;
-    margin: 3px;
-}
-
-.c-control{
-    display: flex;
-    flex-direction: row;
-    margin-left: 10px;
-}
-.sc-adds{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.sc-adds > button{
-    padding: 0.75rem 0.5rem;
-    margin: 3px;
 }
 
 
@@ -168,24 +193,43 @@ button{
       background: #ffeb3b;
       box-shadow: 0px 0px 3px #ffeb3b;
     }
-  }
-  
-
-
-.container{
-    width: 98%;
-    color: #fff;
-    margin: 10px;
-    border: 1px solid white;
-    border-radius: 0.3rem;
 }
+  
+.gc-adds{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.gc-adds > div > button{
+    padding: 0.3rem;
+    width: 100%;
+    margin: 3px;
+    cursor: pointer;
+}
+.sc-adds{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sc-adds > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.sc-adds > div > button{
+    padding: 0.3rem;
+    width: 100%;
+    margin: 3px;
+    cursor: pointer;
+}
+
+
 
 .teams{
     display: flex;
     flex-direction: row;
     /* border: 1px solid white; */
-    margin: 5px;
-    padding: 5px;
     border-radius: 0.3rem;
 }
 .teams > div{
@@ -199,71 +243,6 @@ button{
     padding: 5px;
  
 }
-
-.other-controls{
-    display: flex;
-    flex-direction: row;
-    /* border: 1px solid white; */
-    margin: 5px;
-    padding: 5px;
-    border-radius: 0.3rem;
-}
-
-.other-controls > div{
-    width: 100%;
-}
-
-.other-controls > div:nth-child(1){
-    border: 1px solid white;
-}
-
-.btn{
-    background-color: #283593;
-    color: white;
-    border: 0;
-    padding: 0.75rem 0.75rem;
-    cursor: pointer;
-}
-
-.btn:hover{
-    background-color: #1a237e;
-}
-
-.btn2{
-    background-color: #4527a0;
-    color: white;
-    border: 0;
-    padding: 0.75rem 0.75rem;
-    cursor: pointer;
-}
-
-.btn2:hover{
-    background-color: #311b92;
-}
-
-
-
-.btn-minus{
-    background-color: #ff3d00;
-    border: 0;
-    padding:  0.25rem 0.5rem;
-    color: white;
-    cursor: pointer;
-}
-
-.btn-minus:hover{
-    background-color: #dd2c00;
-}
-
-.tn-container >  input{
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    border: 0;
-    width: 90%;
-    text-align: center;
-}
-
 .teams > div > div:nth-child(2){
     display: flex;
     flex-direction: row;
@@ -276,46 +255,9 @@ button{
     margin: 5px;
 }
 
-.team1 > div{
-    display: flex;
-    flex-direction: row;
-}
-.team2 > div{
-    display: flex;
-    flex-direction: row;
-}
-.tn-container{
-    width: 75%;
-}
 
-.btn-per{
-    background-color: #00838f;
-    color: white;
-    padding: 0.75rem 0.75rem;
-    font-weight: bold;
-    border: 0;
-    cursor: pointer;
-}
-.btn-per:hover{
-    background-color: #006064;
-}
 
-.animated-btn{
-    padding: 0.75rem 0.75rem;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
 
-.animated-btn:hover {background-color: #3e8e41}
 
-.animated-btn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="/font/micro.ttf">
+    <link rel="stylesheet" href="/css/bb-stream.css">
+</head>
+<body>
+    <div class="container">
+        <div class="score-container">
+            <div class="school-logo">
+                <img src="/assets/ACT.png" alt="" width="90px" height="50px">
+            </div>
+            <div class="team1">
+                <span class="teamName1" id="tn-1">
+                    Team 1
+                </span>
+                <span id="ts-1">
+                    00
+                </span>
+            </div>
+            <div class="team2">
+                <span id="ts-2">
+                    00
+                </span>
+                <span class="teamName2" id="tn-2">
+                    Team 2
+                </span>
+            </div>
+            <div class="clocks">
+                <div class="top">
+                    <span id="quarter" style="font-size: 45px; color: #00e676;">1</span><span style="font-size:35px; color: #00e676;" id="quarterSuffix">st</span>
+                </div>
+                <div class="bottom">
+                    <span>Quarter</span>
+                </div>
+                <!-- <div class="top">
+                    <span id="gameclock"><span id="timer-m">10</span>:<span id="timer-s">00</span></span>
+                </div>
+                <div class="bottom">
+                    <div>
+                        <span id="shot-clock">24</span>
+                    </div>
+                    <div>
+                        <span id="quarter">1</span><span id="quarterSuffix">st</span>
+                    </div>
+                </div> -->
+            </div>
+            <div class="ads">
+                <img src="/assets/MIXED-YARN.png" alt="" width="176px" height="77px">
+            </div>
+        </div>
+        <div style="background-color: black; font-family: sans-serif; padding: 5px 0px;">
+            <marquee style="font-size: xx-large;" id="marquee-message"></marquee>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/bb-stream.js"></script>
+</body>
+</html>

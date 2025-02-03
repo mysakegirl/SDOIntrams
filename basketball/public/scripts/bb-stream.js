@@ -2,11 +2,7 @@ const socket = io();
 let _gcInterval  = null;
 let _scInterval = null;
 
-// socket.on('updateScore', (score) => {
-//     document.getElementById('score').innerText = score;
-// });
 checkLocalStorage();
-
 
 socket.on('updateScore', (score) => {
     var currentScore = parseInt(document.getElementById('ts-'+ score.team).innerText) + score.sc;
@@ -29,7 +25,25 @@ socket.on('updateName', (teamName) => {
 socket.on('updateQuarter', () => {
     var currentQuarter = parseInt(document.getElementById('quarter').innerText);
     currentQuarter = (currentQuarter == 4 ? 1 : currentQuarter+=1);
+    var qsuffix = '';
+
+    switch(currentQuarter){
+        case 1: 
+            qsuffix = 'st';
+            break;
+        case 2: 
+            qsuffix = 'nd';
+            break;
+        case 3: 
+            qsuffix = 'rd';
+            break;   
+        case 4: 
+            qsuffix = 'th';
+            break;   
+    }
+
     document.getElementById('quarter').innerText = currentQuarter;
+    document.getElementById('quarterSuffix').innerText = qsuffix;
     localStorage.setItem('quarter', currentQuarter)
 });
 
@@ -40,7 +54,11 @@ socket.on('updateColor', (teamColor) => {
         elem.style.backgroundImage = "linear-gradient(180deg,"+teamColor.color+",black)";
     })
     localStorage.setItem('team' + teamColor.team, teamColor.color)
+});
 
+socket.on('sendShoutOut', (message) => {
+    console.log('received');
+    document.getElementById('marquee-message').innerHTML = message;
 });
 
 
@@ -153,29 +171,29 @@ socket.on('resetGame', () => {
     localStorage.setItem('team1', null);
     localStorage.setItem('team2', null);
 
-    localStorage.setItem('timer-m', null);
-    localStorage.setItem('timer-s', null);
-    localStorage.setItem('shot-clock', null);
+    // localStorage.setItem('timer-m', null);
+    // localStorage.setItem('timer-s', null);
+    // localStorage.setItem('shot-clock', null);
 
     document.getElementById('ts-1').innerText = "00";
     document.getElementById('ts-2').innerText = "00";
     document.getElementById('tn-1').innerText = "Team 1";
     document.getElementById('tn-2').innerText = "Team 2";
     document.getElementById('quarter').innerText = "1";
+    document.getElementById('quarterSuffix').innerText = "st";
 
-    document.getElementById('timer-m').innerText = "10";
-    document.getElementById('timer-s').innerText = "00";
-    document.getElementById('shot-clock').innerText = "24";
+
+    // document.getElementById('timer-m').innerText = "10";
+    // document.getElementById('timer-s').innerText = "00";
+    // document.getElementById('shot-clock').innerText = "24";
 
     var ele = document.querySelectorAll('.team1');
     ele.forEach(function(elem){
-        // elem.style.backgroundColor = '#000';
-        elem.style.backgroundImage = "none";
+        elem.style.backgroundColor = '#000';
     })
     ele = document.querySelectorAll('.team2');
     ele.forEach(function(elem){
-        // elem.style.backgroundColor = '#000';
-        elem.style.backgroundImage = "none";
+        elem.style.backgroundColor = '#000';
     })
 });
 
@@ -200,6 +218,23 @@ function checkLocalStorage(){
     //check quarter
     if(localStorage.getItem('quarter') !== null && localStorage.getItem('quarter') != "null"){
         document.getElementById('quarter').innerText = localStorage.getItem('quarter');
+
+        var qsuffix = '';
+        switch(localStorage.getItem('quarter')){
+            case '1': 
+                qsuffix = 'st';
+                break;
+            case '2': 
+                qsuffix = 'nd';
+                break;
+            case '3': 
+                qsuffix = 'rd';
+                break;   
+            case '4': 
+                qsuffix = 'th';
+                break;   
+        }
+        document.getElementById('quarterSuffix').innerText = qsuffix;
     }
 
     //check colors
@@ -208,7 +243,7 @@ function checkLocalStorage(){
         let elem = document.querySelectorAll('.team1');
         elem.forEach(function(el){
             // el.style.backgroundColor = localStorage.getItem('team1');
-        el.style.backgroundImage = "linear-gradient(180deg,"+localStorage.getItem('team1')+",black)";
+            el.style.backgroundImage = "linear-gradient(180deg,"+localStorage.getItem('team1')+",black)";
 
         })
     }
@@ -218,19 +253,18 @@ function checkLocalStorage(){
         elem.forEach(function(el){
             // el.style.backgroundColor = localStorage.getItem('team2');
             el.style.backgroundImage = "linear-gradient(180deg,"+localStorage.getItem('team2')+",black)";
-                
         })
     }
 
-    if(localStorage.getItem('timer-m') !== null && localStorage.getItem('timer-m') != "null"){
-        document.getElementById('timer-m').innerText = localStorage.getItem('timer-m');
-    }
-    if(localStorage.getItem('timer-s') !== null && localStorage.getItem('timer-s') != "null"){
-        document.getElementById('timer-s').innerText = localStorage.getItem('timer-s');
-    }
-    if(localStorage.getItem('shot-clock') !== null && localStorage.getItem('shot-clock') != "null"){
-        document.getElementById('shot-clock').innerText = localStorage.getItem('shot-clock');
-    }
+    // if(localStorage.getItem('timer-m') !== null && localStorage.getItem('timer-m') != "null"){
+    //     document.getElementById('timer-m').innerText = localStorage.getItem('timer-m');
+    // }
+    // if(localStorage.getItem('timer-s') !== null && localStorage.getItem('timer-s') != "null"){
+    //     document.getElementById('timer-s').innerText = localStorage.getItem('timer-s');
+    // }
+    // if(localStorage.getItem('shot-clock') !== null && localStorage.getItem('shot-clock') != "null"){
+    //     document.getElementById('shot-clock').innerText = localStorage.getItem('shot-clock');
+    // }
 }
 
 function timerCountDown(){

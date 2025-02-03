@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="/font/micro.ttf">
+    <link rel="stylesheet" href="/css/vbscoreboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="teams">
+            <div class="vb-team1">
+                <span id="vbs-tn-1" style="font-size: 7rem;text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;">Team 1</span>
+            </div>
+            <div>
+            </div>
+            <div class="vb-team2">
+                <span id="vbs-tn-2" style="font-size: 7rem;text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;">Team 2</span>
+            </div>
+        </div>
+
+        <div class="scores">
+            <div class="vb-team1">
+                <span id="vb-ts-1">0</span>
+            </div>
+            <div class="period">
+                <div>
+                    <label style="font-size: 7rem;">Set</label><br>
+                    <span id="set">1</span>
+                </div>
+                <div class="setwon">
+                    <div>
+                        <span id="t1-sw">0</span>
+                    </div>
+                    <div>
+                        <span id="t2-sw">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vb-team2">
+                <span id="vb-ts-2">0</span>
+            </div>
+        </div>
+    </div>
+
+    <table class="tableScore">
+        <tr>
+            <td id="tablescore-tn1" style="text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;">Team 1</td>
+            <td id="vb-t1s1"></td>
+            <td id="vb-t1s2"></td>
+            <td id="vb-t1s3"></td>
+            <td id="vb-t1s4"></td>
+            <td id="vb-t1s5"></td>
+        </tr>
+        <tr>
+            <td id="tablescore-tn2" style="text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;">Team 2</td>
+            <td id="vb-t2s1"></td>
+            <td id="vb-t2s2"></td>
+            <td id="vb-t2s3"></td>
+            <td id="vb-t2s4"></td>
+            <td id="vb-t2s5"></td>
+        </tr>
+    </table>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/scripts/vbscoreboard.js"></script>
+</body>
+</html>

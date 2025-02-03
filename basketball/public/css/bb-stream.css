@@ -1,0 +1,143 @@
+body{
+    font-family: 'custom';
+    background-color: #fff;
+    color: white;
+}
+
+@font-face{
+    font-family: 'custom';
+    src: url('/font/digital.ttf') format('truetype');
+}
+
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* border: 1px solid white; */
+}
+
+.score-container{
+    /* margin: 0px 50px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: #101010; */
+}
+
+.team1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 5px;
+    width: 35%;
+    height: 80px;
+    background-color: #000;
+}
+
+.teamName1{
+    width: 75%;
+    text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;
+    padding-left: 20px;
+}
+#ts-1{
+    width: 25%;
+    margin-right: 20px;
+    text-align: right;
+    text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;
+}
+
+
+.team2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 5px;
+    width: 35%;
+    height: 80px;
+    background-color: #000;
+    padding-right: 20px;
+}
+
+
+#ts-2{
+    width: 25%;
+    text-align: left;
+    margin-left: 20px;
+    text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;
+}
+.teamName2{
+    width: 75%;
+    text-align: right;
+    text-shadow: 1px 1px 10px #000, 1px 1px 10px #060606;
+}
+
+
+.team1, .team2 > span{
+    font-size: 55px;
+}
+
+.school-logo{
+    padding: 10px;
+    text-align: center;
+    /* width: fit-content !important; */
+    width: 10%;
+    /* background-color: white; */
+}
+.school-logo > img{
+    height: 57px;
+    /* width: 100%; */
+}
+
+.clocks{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/* .ads{
+    width: 10%;
+} */
+
+#gameclock{
+    font-size: 50px;
+}
+
+.bottom > div {
+    width: 100%;
+    text-align: center;
+}
+
+.bottom > div > span{
+    width: 100%;
+    display: block;
+}
+
+.bottom > div:nth-child(2) > span{
+    display: inline;
+}
+#quarterSuffix{
+    padding-left: 2px;
+}
+
+#shot-clock{
+    font-size: 25px;
+    color: #ffeb3b;
+}
+#quarter{
+    font-size: 25px;
+}
+
+.ads{
+    background-color: white;
+}

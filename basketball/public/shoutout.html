@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="/font/micro.ttf">
+</head>
+<body style="font-family: sans-serif;background-color: #101010;">
+    <textarea id="shoutout-message" style="width: 98%;">Asianista Games 2024 ◆</textarea>
+    <button onclick="sendShoutOut()">display</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="/scripts/bb-stream.js"></script> -->
+    <script>
+        const socket = io();
+
+        function sendShoutOut(){
+            var txt = document.getElementById('shoutout-message').value;
+            socket.emit('shoutoutSend', txt);
+        }
+    </script>
+</body>
+</html>

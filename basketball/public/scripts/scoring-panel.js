@@ -153,3 +153,18 @@ function simulStop(){
     gc.click();
     sc.click();
 }
+
+
+function toggleHide(){
+    var elem = document.getElementById('gen-id');
+    var btn = document.getElementById('gen-btn');
+    if(elem.classList.contains('showContent')){
+        elem.classList.remove('showContent');
+        elem.classList.add('hideContent');
+        btn.innerText = 'Unhide';
+    }else{
+        elem.classList.remove('hideContent');
+        elem.classList.add('showContent');
+        btn.innerText = 'Hide';
+    }
+}

@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     socket.on('quarterUpdate', () => {
         io.emit('updateQuarter');
     });
-
+    
     socket.on('colorUpdate', (color) => {
         io.emit('updateColor', color);
     });
@@ -97,6 +97,58 @@ io.on('connection', (socket) => {
     });
 
 
+
+    // volleyball
+    socket.on('setUpdate', () => {
+        io.emit('updateSet');
+    });
+
+    socket.on('setwonPlus', (team) => {
+        io.emit('plusSetWon', team);
+    });
+    
+    socket.on('setwonMinus', (team) => {
+        io.emit('minusSetWon', team);
+    });
+
+    socket.on('vbTeamNameUpdate', (t) => {
+        io.emit('updateVBTeamName', t);
+    });
+  
+    socket.on('vbTeamColorUpdate', (t) => {
+        io.emit('updateVBTeamColor', t);
+    });
+    
+    socket.on('vbScorePlus', (t) => {
+        io.emit('plusVBScore', t);
+    });
+      
+    socket.on('vbScoreMinus', (t) => {
+        io.emit('minusVBScore', t);
+    });
+    
+    socket.on('scoreEvaluate', () => {
+        io.emit('evaluateScore');
+    });
+
+    socket.on('scoreTableSet', (t) => {
+        io.emit('setScoreTable', t);
+    });
+
+    socket.on('scoreClear', () => {
+        io.emit('clearScore');
+    });
+
+    socket.on('vbGameReset', () => {
+        io.emit('resetVBGAme');
+    });
+
+    socket.on('shoutoutSend', (mess) => {
+        io.emit('sendShoutOut', mess);
+    });
+
+    //end
+
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
@@ -104,8 +156,8 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 3000;
-// const IP_ADDRESS = '192.168.2.116'
+const IP_ADDRESS = '192.168.2.116'
 // , 
-server.listen(PORT,() => {
+server.listen(PORT,IP_ADDRESS,() => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
