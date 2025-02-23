@@ -19,12 +19,7 @@ body{
 .container{
     width: 100%;
     display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-.wrapper{
-    width: 100%;
-    margin-top: 10px;
+    flex-direction: column;
 }
 
 .teams{
@@ -66,7 +61,7 @@ body{
     text-align:center;
 }
 
-#ts-1, #ts-2{
+.scores > div > span{
     display: block;
     background-color: #000;
     padding: 10px 0px;
@@ -83,26 +78,16 @@ body{
 
 #quarter{
     background-color: #000;
-    padding: 5px 20px;
+    padding: 5px 30px;
     color: #00e676;
-    font-size: 7rem;
-    border: 1px solid #545454;
+    font-size: 230px;
 }
 
 #shot-clock{
     background-color: #000;
     padding: 5px 30px;
     color: #dd2c00;
-    font-size: 20rem;
-    border: 1px solid #545454;
-}
-.shot-clock-wrapper{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+    font-size: 8rem;
 }
 
 #timer{
@@ -110,10 +95,9 @@ body{
     padding: 10px;
     font-size: 15rem;
     text-align: center;
-    border: 4px solid white;
+    border: 2px solid white;
     margin-top: 5px;
     color: #ffeb3b;
-    border-radius: 4px;
 }
 
 #tn-1{
@@ -134,8 +118,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    gap: 50px;
 }
 
 .team1{
