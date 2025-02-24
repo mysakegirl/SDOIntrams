@@ -9,16 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="wrapper">
-            <div class="team1">
+        <div class="wrapper" style="margin-top: 40px;">
+            <div class="team1 team-names">
                 <span id="tn-1">Team 1</span>
             </div>
             <div class="team1">
                 <span id="ts-1">00</span>
             </div>
-            <div class="team1">
-                <label>Fouls</label>
-                <span>0</span>
+            <div class="fouls">
+                <label style="font-size: 6rem;">Fouls</label>
+                <span id="tf-1">0</span>
             </div>
         </div>
         <div class="wrapper">
@@ -36,23 +36,22 @@
                 <label style="font-size: 6rem;">ShotClock</label>
             </div>
         </div>
-        <div class="wrapper">
-            <div class="team2">
+        <div class="wrapper" style="margin-top: 40px;">
+            <div class="team2 team-names">
                 <span id="tn-2">Team 2</span>
             </div>
             <div class="team2">
                 <span id="ts-2">00</span>
             </div>
-            <div class="team2">
-                <label>Fouls</label>
-                <span>0</span>
+            <div class="fouls">
+                <label style="font-size: 6rem;">Fouls</label>
+                <span id="tf-2">0</span>
             </div>
         </div>
         <!-- <div class="scores">
         </div>
         <div class="teams">
         </div> -->
-     
     </div>
 
     <div style="display: none;">
@@ -60,6 +59,13 @@
             <source src="/assets/horn.mp3" type="audio/mp3">
           </audio>
     </div>
+
+    <div style="display: none;">
+        <audio id="buzzerid">
+            <source src="/assets/shotclockbuzzer.mp3" type="audio/mp3">
+          </audio>
+    </div>
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/scripts/scoreboard.js"></script>

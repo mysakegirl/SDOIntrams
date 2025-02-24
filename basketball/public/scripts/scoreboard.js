@@ -23,6 +23,7 @@ socket.on('updateScore', (score) => {
 socket.on('updateName', (teamName) => {
     var currentName = teamName.name;
     document.getElementById('tn-'+ teamName.team).innerText = currentName;
+    updateFontSize(document.getElementById('tn-'+ teamName.team));
     localStorage.setItem('tn-' + teamName.team,currentName)
 });
 
@@ -192,9 +193,11 @@ function checkLocalStorage(){
     //check names
     if(localStorage.getItem('tn-1') !== null && localStorage.getItem('tn-1') != "null"){
         document.getElementById('tn-1').innerText = localStorage.getItem('tn-1');
+        updateFontSize(document.getElementById('tn-1'));
     }
     if(localStorage.getItem('tn-2') !== null && localStorage.getItem('tn-2') != "null"){
         document.getElementById('tn-2').innerText = localStorage.getItem('tn-2');
+        updateFontSize(document.getElementById('tn-2'));
     }
 
     //check quarter
@@ -251,6 +254,7 @@ function timerCountDown(){
 
         localStorage.setItem('timer-m', "00");
         localStorage.setItem('timer-s', "00");
+        playHorn();
     }
     else{
         document.getElementById('timer-m').innerText = Math.floor(totalSeconds / 60);
@@ -269,6 +273,10 @@ function playHorn(){
     horn.play();
 }
 
+function playBuzzer(){
+    const buzzer = document.getElementById('buzzerid');
+    buzzer.play();
+}
 
 function scCountDown(){
     var currentSC = parseInt(document.getElementById('shot-clock').innerText);
@@ -279,6 +287,7 @@ function scCountDown(){
         clearInterval(_scInterval);
         document.getElementById('shot-clock').innerText = "0";
         localStorage.setItem('shot-clock', "0");
+        playBuzzer();
     }
     else{
         document.getElementById('shot-clock').innerText = currentSC;
@@ -286,3 +295,10 @@ function scCountDown(){
     }
 }
 
+function updateFontSize(elem){
+    if(elem.innerText.length <= 10){
+        elem.style.fontSize = '8rem';
+    }else{
+        elem.style.fontSize = '6rem';
+    }
+}
