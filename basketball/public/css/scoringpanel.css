@@ -423,3 +423,8 @@ button{
     background-color: #7f1d1d;
 }
 
+
+#ts-1, #ts-2{
+    color: rgb(247, 0, 0);
+    text-shadow: 0 0 5px rgb(26 2 2 / 60%), 0 0 10px rgb(0 0 0 / 40%);
+}

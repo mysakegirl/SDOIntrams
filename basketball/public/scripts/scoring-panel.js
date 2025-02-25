@@ -2,7 +2,7 @@ const socket = io();
 checkInitials();
 let _gcInterval  = null;
 let _scInterval = null;
-let _scDisabled = null;
+let _scDisabled = false;
 
 function updateScore(sc,team){
     var currentScore = parseInt(document.getElementById('ts-'+ team).innerText) + sc;
@@ -199,9 +199,15 @@ function disableSC(){
     var sdb = document.getElementById('sc-disable-btn');
     if(sdb.classList.length > 0){
         sdb.classList.remove('sc-disabled');
+        _scDisabled = false;
+        if(_gcInterval != null){
+            StartSC();
+        }
     }
     else{
         sdb.classList.add('sc-disabled');
+        StopSC();
+        _scDisabled = true;
     }
 }
 
@@ -276,7 +282,9 @@ function simulStart(){
     var gc = document.getElementById('gcstart');
     gc.classList.add('active-btn');
     startTime();
-    StartSC();
+    if(_scDisabled == false){
+        StartSC();
+    }
 }
 function simulStop(){
     // var gc = document.getElementById('gcstop');
