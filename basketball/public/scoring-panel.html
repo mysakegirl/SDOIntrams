@@ -9,32 +9,49 @@
 </head>
 <body>
     <div class="sp-container">
-        <div class="sp-wrapper"></div>
         <div class="sp-wrapper">
            <div class="sp-top-row">
-                <button class="sp-top-btn">Buzzer</button>
-                <button class="sp-top-btn">Horn</button>
-                <button class="sp-top-btn">Emit Data</button>
+                <button class="sp-top-btn" style="width: 124px;" onclick="resetGame()">Reset Game</button>
+                <button class="sp-top-btn" style="width: 124px;">Emit Data</button>
+                <button class="sp-top-btn sp-top-buzzer" onclick="endBuzzer()">Buzzer</button>
+                <button class="sp-top-btn sp-top-horn" onclick="endHorn()">Horn</button>
                 <div>
                     <div>
-                        <label>Period</label>
-                        <span id="sp-period">1</span>
+                        <label class="sp-fspx-11">Period</label>
+                        <span id="sp-period" class="sp-fs-3" style="color: #00e676;">1</span>
                     </div>
                     <div>
-                        <button>+</button>
+                        <button onclick="updateQuarter()">+</button>
                     </div>
                 </div>
            </div>
         </div>
-        <div class="sp-wrapper"></div>
     </div>
-
     <div class="sp-container">
         <div class="sp-wrapper">
             <div class="sp-holder">
                 <div class="sp-holder-data">
-                    <div style="display: flex; flex-direction: row;width: 25%"><input id="color-1" onchange="updateColor(1)" type="color"/></div>
-                    <div class="tn-container"><input id="t1-n" onchange="updateName(1)" placeholder="Enter Team Name"/></div>
+                    <div>
+                        <div>
+                            <label class="sp-fspx-11">Team Color:</label><input id="color-1" onchange="updateColor(1)" type="color"/>
+                        </div>
+                        <div>
+                            <div class="tn-container"><input id="t1-n" style="font-family: 'custom';" onchange="updateName(1)" placeholder="Team Name"/></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span id="ts-1" class="sp-fs-5">0</span>
+                       </div>
+                        <div>
+                            <span class="sp-fs-2" id="tf-1" style="color: #00e676;">0</span>
+                            <label class="sp-fspx-11">Foul</label>
+                           <div>
+                                <button onclick="updateTeamFoul(1,1)">+</button>
+                                <button onclick="updateTeamFoul(-1,1)">-</button>
+                           </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="sp-holder-buttons">
                     <button class="btn-minus" onclick="updateScore(-1,1)" id="t1-m1"><label>-1</label></button>
@@ -45,13 +62,78 @@
             </div>
         </div>
         <div class="sp-wrapper">
-
+            <div class="sp-holder-clocks">
+                <div>
+                    <div>
+                        <div>
+                            <span id="timer" style="font-size: 5rem; color: #ffeb3b;"><span id="timer-m">10</span>:<span id="timer-s">00</span></span>
+                         </div>
+                         <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+                             <div>
+                                 <label class="sp-fspx-11">Minutes</label>
+                                 <div>
+                                     <button onclick="addMinute()">+</button>
+                                     <button onclick="minusMinute()">-</button>
+                                 </div>
+                             </div>
+                             <div>
+                                 <label class="sp-fspx-11">Seconds</label>
+                                 <div>
+                                     <button onclick="addSecond()">+</button>
+                                     <button onclick="minusSecond()">-</button>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; gap: 5px; padding-top: 5px; margin-top: 10px; border-top: 1px solid #ccc; height: 100%;">
+                        <button id="gcstop" onclick="simulStop()" style="height: 100%;">STOP</button>
+                        <button id="gcstart" onclick="simulStart()" style="height: 100%;">START</button>
+                        <button onclick="disableSC()" id="sc-disable-btn" style="height: 100%;">SC<br>DISABLE</button>
+                    </div>
+                </div>
+                <div>
+                    <span id="shot-clock" style="font-size: 5rem;color: #dd2c00;">0</span>
+                    <label class="sp-fspx-11">Seconds</label>
+                    <div>
+                        <button onclick="addSC()">+</button>
+                        <button onclick="minusSC()">-</button>
+                    </div>
+                    <div style="border-top: 1px solid #ccc; margin-top: 15px; height: 100%;">
+                        <div>
+                            <label class="sp-fspx-11">Reset</label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; gap: 5px; height: 79%;">
+                            <button onclick="resetTo14()" style="height: 100%;">[14]</button>
+                            <button onclick="resetTo24()" style="height: 100%;">[24]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="sp-wrapper">
             <div class="sp-holder">
                 <div class="sp-holder-data">
-                    <div style="display: flex; flex-direction: row;width: 25%"><input id="color-1" onchange="updateColor(1)" type="color"/></div>
-                    <div class="tn-container"><input id="t1-n" onchange="updateName(1)" placeholder="Enter Team Name"/></div>
+                    <div>
+                        <div>
+                            <label class="sp-fspx-11">Team Color:</label><input id="color-2" onchange="updateColor(2)" type="color"/>
+                        </div>
+                        <div>
+                            <div class="tn-container"><input style="font-family: 'custom';" id="t2-n" onchange="updateName(2)" placeholder="Team Name"/></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span id="ts-2" class="sp-fs-5">0</span>
+                       </div>
+                        <div>
+                            <span class="sp-fs-2" id="tf-2" style="color: #00e676;">0</span>
+                            <label class="sp-fspx-11">Foul</label>
+                           <div>
+                                <button onclick="updateTeamFoul(1,2)">+</button>
+                                <button onclick="updateTeamFoul(-1,2)">-</button>
+                           </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="sp-holder-buttons">
                         <button class="btn-minus" onclick="updateScore(-1,2)" id="t2-m1"><label>-1</label></button>

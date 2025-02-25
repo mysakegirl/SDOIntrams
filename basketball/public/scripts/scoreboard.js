@@ -11,13 +11,23 @@ checkLocalStorage();
 socket.on('updateScore', (score) => {
     var currentScore = parseInt(document.getElementById('ts-'+ score.team).innerText) + score.sc;
     if(currentScore < 0){
-        document.getElementById('ts-'+ score.team).innerText = "00";
-        localStorage.setItem('ts-' + score.team,"00")
+        document.getElementById('ts-'+ score.team).innerText = "0";
+        localStorage.setItem('ts-' + score.team,"0")
     }else{
         document.getElementById('ts-'+ score.team).innerText = currentScore;
         localStorage.setItem('ts-' + score.team,currentScore)
     }
-  
+});
+
+socket.on('updateTeamFoul', (tf) => {
+    var currentTF = parseInt(document.getElementById('tf-'+ tf.team).innerText) + tf.sc;
+    if(currentTF < 0){
+        document.getElementById('tf-'+ tf.team).innerText = "0";
+        localStorage.setItem('tf-' + tf.team,"0")
+    }else{
+        document.getElementById('tf-'+ tf.team).innerText = currentTF;
+        localStorage.setItem('tf-' + tf.team,currentTF)
+    }
 });
 
 socket.on('updateName', (teamName) => {
@@ -143,11 +153,16 @@ socket.on('endHorn', () => {
     console.log('horn');
     playHorn();
 });
+socket.on('endBuzzer', () => {
+    playBuzzer();
+});
 
 
 socket.on('resetGame', () => {
     localStorage.setItem('ts-1', null);
     localStorage.setItem('ts-2', null);
+    localStorage.setItem('tf-1', null);
+    localStorage.setItem('tf-2', null);
     localStorage.setItem('tn-1', null);
     localStorage.setItem('tn-2', null);
     localStorage.setItem('quarter', null);
@@ -160,6 +175,8 @@ socket.on('resetGame', () => {
 
     document.getElementById('ts-1').innerText = "00";
     document.getElementById('ts-2').innerText = "00";
+    document.getElementById('tf-1').innerText = "0";
+    document.getElementById('tf-2').innerText = "0";
     document.getElementById('tn-1').innerText = "Team 1";
     document.getElementById('tn-2').innerText = "Team 2";
     document.getElementById('quarter').innerText = "1";
@@ -188,6 +205,14 @@ function checkLocalStorage(){
     }
     if(localStorage.getItem('ts-2') !== null && localStorage.getItem('ts-2') != "null"){
         document.getElementById('ts-2').innerText = localStorage.getItem('ts-2');
+    }
+
+     //check team fouls
+     if(localStorage.getItem('tf-1') !== null && localStorage.getItem('tf-1') != "null"){
+        document.getElementById('tf-1').innerText = localStorage.getItem('tf-1');
+    }
+    if(localStorage.getItem('tf-2') !== null && localStorage.getItem('tf-2') != "null"){
+        document.getElementById('tf-2').innerText = localStorage.getItem('tf-2');
     }
 
     //check names

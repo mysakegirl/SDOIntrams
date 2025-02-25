@@ -6,6 +6,9 @@ body{
     /* margin: 0px; */
     /* box-sizing: border-box; */
 }
+button{
+    cursor: pointer;
+}
 
 @font-face{
     font-family: 'custom';
@@ -18,7 +21,9 @@ body{
     border-radius: 0.5rem; */
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 2px;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 
 .sp-wrapper{
@@ -27,7 +32,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 .sp-wrapper:nth-child(2){
     width: 40%;
@@ -38,7 +43,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 .sp-top-row > div {
     display: flex;
@@ -46,18 +51,54 @@ body{
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+    gap: 5px;
+    padding: 5px;
 }
 .sp-top-row > div > div{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+.sp-holder-buttons{
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+    margin-top: 15px;
+}
+
 .sp-holder{
     border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5px;
+    height: 210px;
 }
+.sp-holder-clocks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+.sp-holder-clocks > div{
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 210px;
+}
+.sp-holder-clocks > div > div:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
 
 .sp-top-btn{
     font-weight: bold;
@@ -66,7 +107,7 @@ body{
 }
 
 .sp-top-btn {
-    background-color: #06b6d4; 
+    background-color: #4b5563; 
     border: none;
     color: white;
     font-weight: bold;
@@ -75,7 +116,7 @@ body{
   }
   
   .sp-top-btn:hover {
-    background-color: #0891b2;
+    background-color: #374151;
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   }
@@ -84,8 +125,47 @@ body{
     transform: translateY(2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
 
+  .sp-top-buzzer{
+    background-color: #15803d;
+  }
+  .sp-top-buzzer:hover{
+    background-color: #166534;
+  }
+  .sp-top-horn{
+    background-color: #ca8a04;
+  }
+  .sp-top-horn:hover{
+    background-color: #a16207;
+  }
+  
+  .sp-holder-data{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+  .sp-holder-data > div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sp-holder-data > div:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .sp-holder-data > div:nth-child(2) > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+  }
 
 .gen-container{
     display: flex;
@@ -139,12 +219,12 @@ body{
 }
 
 .tn-container{
-    width: 75%;
+    width: 95%;
 }
 .tn-container >  input{
     padding: .375rem .75rem;
     font-size: 1rem;
-    border-radius: 0.25rem;
+    /* border-radius: 0.25rem; */
     border: 0;
     width: 90%;
     text-align: center;
@@ -153,7 +233,7 @@ body{
 .btn-minus{
     background-color: #c62828;
     border: 0;
-    padding:  0.25rem 0.5rem;
+    padding: 0.75rem 0.75rem;
     color: white;
     cursor: pointer;
 }
@@ -171,8 +251,9 @@ body{
 
 .btn:hover{
     background-color: #1b5e20;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     color: white;
+    transition: 0.2s all ease;
 }
 
 .btn2{
@@ -185,14 +266,15 @@ body{
 .btn2:hover{
     background-color: #1b5e20;
     color: white;
-    border: 2px solid white;
+    transition: 0.2s all ease;
+    /* border: 2px solid white; */
 }
 
 .gc-start{
     padding: 10px;
     background-color: #2e7d32;
     color: #fff;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .gc-start:hover{
     background-color: #1b5e20;
@@ -202,7 +284,7 @@ body{
     padding: 10px;
     background-color: #c62828;
     color: #fff;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .gc-stop:hover{
     background-color: #b71c1c;
@@ -211,14 +293,14 @@ body{
 .simul-start{
     cursor: pointer;
     padding: 10px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     color: #fff;
     background-color: #6a1b9a;
 }
 .simul-stop{
     cursor: pointer;
     padding: 10px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     color: #fff;
     background-color: #d50000;
 }
@@ -227,7 +309,7 @@ body{
     padding: 10px;
     background-color: #2e7d32;
     color: #fff;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .sc-start:hover{
     background-color: #1b5e20;
@@ -236,7 +318,7 @@ body{
     padding: 10px;
     background-color: #c62828;
     color: #fff;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .sc-stop:hover{
     background-color: #b71c1c;
@@ -324,9 +406,20 @@ body{
     margin: 5px;
 }
 
+.sp-fs-5{
+    font-size: 5rem;
+}
+.sp-fs-3{
+    font-size: 3rem;
+}
+.sp-fs-2{
+    font-size: 2rem;
+}
+.sp-fspx-11{
+    font-size: 11px;
+}
 
-
-
-
-
+.sc-disabled{
+    background-color: #7f1d1d;
+}
 

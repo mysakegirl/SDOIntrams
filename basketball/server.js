@@ -26,6 +26,10 @@ io.on('connection', (socket) => {
         io.emit('updateScore', score);
     });
 
+    socket.on('teamFoulUpdate', (foul) => {
+        io.emit('updateTeamFoul', foul);
+    });
+
     socket.on('nameUpdate', (teamName) => {
         io.emit('updateName', teamName);
     });
@@ -94,6 +98,9 @@ io.on('connection', (socket) => {
 
     socket.on('hornEnd', () => {
         io.emit('endHorn');
+    });
+    socket.on('buzzerEnd', () => {
+        io.emit('endBuzzer');
     });
 
 
