@@ -41,6 +41,10 @@ io.on('connection', (socket) => {
     socket.on('colorUpdate', (color) => {
         io.emit('updateColor', color);
     });
+    
+    socket.on('dataEmit', (data) => {
+        io.emit('emitData', data);
+    });
 
     socket.on('gameReset', () => {
         io.emit('resetGame');
@@ -163,8 +167,8 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 3000;
-const IP_ADDRESS = '192.168.2.116'
+const IP_ADDRESS = '192.168.2.124'
 // , IP_ADDRESS,
-server.listen(PORT,() => {
+server.listen(PORT,IP_ADDRESS, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

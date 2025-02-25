@@ -49,6 +49,27 @@ function updateColor(team){
     socket.emit('colorUpdate', { color, team});
 }
 
+function emitData(){
+    var res = confirm("Are you sure you want to emit your data?");
+    if(res == true){
+        var data = {
+            quarter: document.getElementById('sp-period').innerText,
+            color1: document.getElementById('color-1').value,
+            color2: document.getElementById('color-2').value,
+            tn1: document.getElementById('t1-n').value,
+            tn2: document.getElementById('t2-n').value,
+            tf1: document.getElementById('tf-1').innerText,
+            tf2: document.getElementById('tf-2').innerText,
+            ts1: document.getElementById('ts-1').innerText,
+            ts2: document.getElementById('ts-2').innerText,
+            shotclock: document.getElementById('shot-clock').innerText,
+            timerm: document.getElementById('timer-m').innerText,
+            timers: document.getElementById('timer-s').innerText
+        };
+        socket.emit('dataEmit', data);
+    }
+}
+
 function resetGame(){
     var res = confirm("Are you sure you want to reset the game?");
     if(res == true){

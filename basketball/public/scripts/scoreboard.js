@@ -7,6 +7,40 @@ let _scInterval = null;
 // });
 checkLocalStorage();
 
+socket.on('emitData', (data) =>{
+    document.getElementById('ts-1').innerText = data.ts1;
+    localStorage.setItem('ts-1',data.ts1)
+    localStorage.setItem('team1', data.color1)
+    document.getElementById('ts-2').innerText = data.ts2;
+    localStorage.setItem('ts-2',data.ts2)
+    localStorage.setItem('team2', data.color2)
+    document.getElementById('tf-1').innerText = data.tf1;
+    localStorage.setItem('tf-1',data.tf1)
+    document.getElementById('tf-2').innerText = data.tf2;
+    localStorage.setItem('tf-2',data.tf2)
+    document.getElementById('tn-1').innerText = data.tn1;
+    localStorage.setItem('tn-1',data.tn1)
+    document.getElementById('tn-2').innerText = data.tn2;
+    localStorage.setItem('tn-2',data.tn2)
+    document.getElementById('quarter').innerText = data.quarter;
+    localStorage.setItem('quarter', data.quarter)
+    document.getElementById('shot-clock').innerText = data.shotclock;
+    localStorage.setItem('shotclock', data.shotclock)
+    document.getElementById('timer-m').innerText = data.timerm;
+    localStorage.setItem('timer-m', data.timerm)
+    document.getElementById('timer-s').innerText = data.timers;
+    localStorage.setItem('timer-s', data.timers)
+
+    var ele = document.querySelectorAll('.team1');
+    ele.forEach(function(elem){
+        elem.style.backgroundImage = "linear-gradient(180deg,"+data.color1+",black)";
+    })
+
+    var ele2 = document.querySelectorAll('.team2');
+    ele2.forEach(function(elem){
+        elem.style.backgroundImage = "linear-gradient(180deg,"+data.color2+",black)";
+    })
+})
 
 socket.on('updateScore', (score) => {
     var currentScore = parseInt(document.getElementById('ts-'+ score.team).innerText) + score.sc;
