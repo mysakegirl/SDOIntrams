@@ -92,6 +92,8 @@ function resetGame(){
         document.getElementById('t2-n').value = '';
         document.getElementById('tf-1').value = '0';
         document.getElementById('tf-2').value = '0';
+        document.getElementById('ts-1').value = '0';
+        document.getElementById('ts-2').value = '0';
         document.getElementById('sp-period').value = '1';
         document.getElementById('color-1').value = '#000000';
         document.getElementById('color-2').value = '#000000';
