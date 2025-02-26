@@ -19,7 +19,8 @@ app.get('/scoreboard', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('A user connected');
+    const currentTime = new Date().toLocaleString();
+    console.log(`[${currentTime}] A user connected`);
 
     // Handle scoring events
     socket.on('scoreUpdate', (score) => {
@@ -161,14 +162,15 @@ io.on('connection', (socket) => {
     //end
 
     socket.on('disconnect', () => {
-        console.log('User disconnected');
+        const disconnectTime = new Date().toLocaleString();
+        console.log(`[${disconnectTime}] user disconnected`);
     });
 
 });
 
 const PORT = process.env.PORT || 3000;
-const IP_ADDRESS = '192.168.2.124'
+// const IP_ADDRESS = '192.168.2.124'
 // , IP_ADDRESS,
-server.listen(PORT,IP_ADDRESS, () => {
+server.listen(PORT,() => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
