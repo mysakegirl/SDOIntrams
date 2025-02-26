@@ -73,8 +73,6 @@ function emitData(){
 function resetGame(){
     var res = confirm("Are you sure you want to reset the game?");
     if(res == true){
-        socket.emit('gameReset');
-
         localStorage.setItem('ts-1', null);
         localStorage.setItem('ts-2', null);
         localStorage.setItem('tn-1', null);
@@ -88,13 +86,13 @@ function resetGame(){
         localStorage.setItem('timer-s', null);
         localStorage.setItem('shot-clock', null);
 
-        document.getElementById('t1-n').value = '';
-        document.getElementById('t2-n').value = '';
-        document.getElementById('tf-1').value = '0';
-        document.getElementById('tf-2').value = '0';
-        document.getElementById('ts-1').value = '0';
-        document.getElementById('ts-2').value = '0';
-        document.getElementById('sp-period').value = '1';
+        document.getElementById('t1-n').innerHTML = '';
+        document.getElementById('t2-n').innerHTML = '';
+        document.getElementById('tf-1').innerHTML = '0';
+        document.getElementById('tf-2').innerHTML = '0';
+        document.getElementById('ts-1').innerHTML = '0';
+        document.getElementById('ts-2').innerHTML = '0';
+        document.getElementById('sp-period').innerHTML = '1';
         document.getElementById('color-1').value = '#000000';
         document.getElementById('color-2').value = '#000000';
 
@@ -104,6 +102,7 @@ function resetGame(){
         document.getElementById('timer-m').innerText = "10";
         document.getElementById('timer-s').innerText = "00";
         document.getElementById('shot-clock').innerText = "24";
+        socket.emit('gameReset');
     }
 }
 
